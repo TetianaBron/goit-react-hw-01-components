@@ -1,0 +1,15 @@
+.card {
+  display: flex;
+  flex-direction: row;
+}
+
+.avatar {
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.name {
+  font-weight: bold;
+  font-size: 18px;
+  line-height: 45px;
+}
