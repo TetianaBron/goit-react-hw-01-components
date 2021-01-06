@@ -13,11 +13,13 @@ export default function TransactionHistory({ items }) {
       </thead>
 
       <tbody>
-        {items.map(item => (
-          <tr key={item.id}>
-            <td className={s.bodyItem}>{item.type}</td>
-            <td className={s.bodyItem}>{item.amount}</td>
-            <td className={s.bodyItem}>{item.currency}</td>
+        {items.map(({ id, type, amount, currency }) => (
+          <tr key={id}>
+            <td className={s.bodyItem}>
+              {type.slice(0, 1).toUpperCase() + type.slice(1)}
+            </td>
+            <td className={s.bodyItem}>{amount}</td>
+            <td className={s.bodyItem}>{currency}</td>
           </tr>
         ))}
       </tbody>

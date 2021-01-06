@@ -1,13 +1,15 @@
+import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import s from './FriendListItem.module.css';
+import defaultImage from '../default.jpg';
 
 const StatusColor = styled.span`
   line-height: 50px;
   fill: ${props => (props.status ? 'green' : 'red')};
 `;
 
-export default function FriendListItem({ avatar, name, isOnline }) {
+const FriendListItem = ({ avatar, name, isOnline }) => {
   return (
     <div className={s.card}>
       <StatusColor status={isOnline}>
@@ -25,10 +27,16 @@ export default function FriendListItem({ avatar, name, isOnline }) {
       <p className={s.name}>{name}</p>
     </div>
   );
-}
+};
+
+FriendListItem.defaultProps = {
+  avatar: defaultImage,
+};
 
 FriendListItem.propTypes = {
-  avatar: PropTypes.string,
+  avatar: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
   isOnline: PropTypes.bool.isRequired,
 };
+
+export default FriendListItem;
